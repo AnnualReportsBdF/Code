@@ -126,10 +126,12 @@ def CreateDataWithoutDuplicates(directoryPath):
             pagesNumber = CountPagesNumber(path)
             infosFile = RetrieveInfosCompany(path)
             infosText = ConvertFileToText(path, infosFile[3])
+        
             dataDic.append({'Country': infosFile[0], 'Company': infosFile[1], 'Year': infosFile[2], 
                         'Text': infosText[0].encode('utf-8'), 
                         'Scan': infosText[1],'Pages Number': pagesNumber, 'Language Expected': infosFile[3], 
                         'Language Estimated': infosText[2]})
+        
             percentage = int(ithFile * 100 / count)
             spacesNumber = count - ithFile
             sys.stdout.write("\r")
