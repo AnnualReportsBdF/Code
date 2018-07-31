@@ -341,6 +341,14 @@ def RenamePdfs(directoryPath, pdfTypes):
                         
                     except:
                         print('\n ERROR RenamePdfs: ' + str(filePath))
+                        try:
+                            os.rename(filePath, directoryPath + '/Error/' + filePath[filePath.rfind('/')+1:])
+                        except:
+                            try:
+                                os.rename(filePath, directoryPath + '/Error/' + pdfName)
+                            except:
+                                pass
+                            pass
                         pass
                     
     for pdfName in set(duplicates):
